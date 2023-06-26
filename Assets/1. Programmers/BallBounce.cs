@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BallBounce : MonoBehaviour
@@ -21,15 +19,21 @@ public class BallBounce : MonoBehaviour
     public int throwCount;
     void Start()
     {
-
         Debug.Log(Solution(members, throwCount));
     }
-
     int Solution(int[] numbers, int k)
     {
         int answer = 0;
-
-
+        int idx = ((k * 2) - 1) % numbers.Length;
+        if (idx == 0) answer = numbers[numbers.Length - 1];
+        else
+        {
+            answer = numbers[idx - 1];
+        }
+        /*
+         * =============더 간단한 정답 =====================
+         * answer = numbers[((k * 2) - 2) % numbers.Length]; 
+         */
         return answer;
     }
 }
