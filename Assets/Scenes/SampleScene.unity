@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 866257342}
   - component: {fileID: 866257339}
   - component: {fileID: 866257341}
+  - component: {fileID: 866257343}
   m_Layer: 0
   m_Name: AnswerBot
   m_TagString: Untagged
@@ -262,7 +263,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866257338}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f59564a4b194b3c43b66802f0d5f2473, type: 3}
   m_Name: 
@@ -283,3 +284,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   members: 
   throwCount: 0
+--- !u!114 &866257343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866257338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef536d9c2a5ea04a9c1720365c07712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cnt: 10
