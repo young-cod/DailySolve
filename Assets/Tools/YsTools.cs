@@ -6,6 +6,18 @@ namespace YsTools
 {
     public class EasyTool
     {
+        public static int Factorial(int n)
+        {
+            int answer = 1;
+
+            for (int i = 1; i <= n; i++)
+            {
+                answer *= i;
+            }
+
+            return answer;
+        }
+        
         //public static List<int> GetDivisorNumList(int n)
         //{
         //    List<int> list = new List<int>();

@@ -216,10 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 866257340}
-  - component: {fileID: 866257342}
-  - component: {fileID: 866257339}
   - component: {fileID: 866257341}
-  - component: {fileID: 866257343}
   m_Layer: 0
   m_Name: AnswerBot
   m_TagString: Untagged
@@ -227,20 +224,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &866257339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866257338}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c68b66c92e67a7942a4412988c146058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numbers: 0100000002000000030000000400000005000000
-  direction: right
 --- !u!4 &866257340
 Transform:
   m_ObjectHideFlags: 0
@@ -263,37 +246,8 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866257338}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f59564a4b194b3c43b66802f0d5f2473, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxInfo: 0a0000000800000006000000
-  diceInfo: 3
---- !u!114 &866257342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866257338}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1faa927aa6777545b4d972f2d1a9a9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  members: 
-  throwCount: 0
---- !u!114 &866257343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866257338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fef536d9c2a5ea04a9c1720365c07712, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f97dcf1249823c44a2ead16315df0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cnt: 10
