@@ -7,8 +7,7 @@ public class AnswerBot : MonoBehaviour
 {
     int n = 3600000;
     void Start()
-    {
-        //Debug.Log(Solution.Factorial(n));    
-        Solution.Factorial(n);    
+    {    
+       Debug.Log(Solution.VowelRemove("nice to meet you"));    
     }
 }
