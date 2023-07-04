@@ -218,8 +218,8 @@ my_string은 소문자와 공백으로 이루어져 있습니다.
         public static string VowelRemove(string my_string)
         {
             string answer = "";
-            
-            string[] str = my_string.Split('a', 'e','i', 'o', 'u');
+
+            string[] str = my_string.Split('a', 'e', 'i', 'o', 'u');
             foreach (var item in str)
             {
                 answer += item;
@@ -231,6 +231,41 @@ my_string은 소문자와 공백으로 이루어져 있습니다.
          * 
          * Regex.Replace(my_string,"a|e|i|o|u","");
          */
+        #endregion
+
+        #region 문자열 정렬하기(1)
+        /*
+         * 문제 설명
+문자열 my_string이 매개변수로 주어질 때, my_string 안에 있는 숫자만 골라 오름차순 정렬한 리스트를 return 하도록 solution 함수를 작성해보세요.
+
+제한사항
+1 ≤ my_string의 길이 ≤ 100
+my_string에는 숫자가 한 개 이상 포함되어 있습니다.
+my_string은 영어 소문자 또는 0부터 9까지의 숫자로 이루어져 있습니다. - - -
+         */
+
+        public static int[] CharStringArrange(string my_string)
+        {
+            int[] answer = new int[] { };
+            List<int> sortNum = new List<int>();
+
+            foreach (var item in my_string)
+            {
+                if (item >= '0' && item <= '9')
+                {
+                    sortNum.Add(item - '0');
+                }
+            }
+            sortNum.Sort();
+            answer = new int[sortNum.Count];
+
+            for (int i = 0; i < answer.Length; i++)
+            {
+                answer[i] = sortNum[i];
+            }
+
+            return answer;
+        }
         #endregion
     }
 }
