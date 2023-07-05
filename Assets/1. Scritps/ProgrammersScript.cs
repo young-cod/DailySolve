@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using YsTools;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace ProgrammersScript
@@ -283,24 +284,16 @@ my_string은 영어 소문자 또는 0부터 9까지의 숫자로 이루어져 있습니다. - - -
             int[] answer = new int[] { };
             List<int> arrange = new List<int>();
 
-            int idx = 2;
-            while (n>0)
+            for (int i = 2; i <= n; i++)
             {
-                if (idx % 2 == 0)
+                while(n % i == 0)
                 {
-                    n /= idx;
-                    arrange.Add(idx);
-                    idx++;
+                    arrange.Add(i);
+                    n /= i;
                 }
             }
 
-            answer = new int[arrange.Count];
-            arrange.Sort();
-            for (int i = 0; i < arrange.Count; i++)
-            {
-                answer[i] = arrange[i];
-            }
-            return answer;
+            return arrange.Distinct().ToArray();
         }
         #endregion
     }

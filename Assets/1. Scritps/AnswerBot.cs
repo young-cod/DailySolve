@@ -8,6 +8,9 @@ public class AnswerBot : MonoBehaviour
     int n = 3600000;
     void Start()
     {    
-       Debug.Log(Solution.VowelRemove("nice to meet you"));    
+     foreach (var item in Solution.Factorization(420))
+        {
+            Debug.Log(item);
+        }
     }
 }
