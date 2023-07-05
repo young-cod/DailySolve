@@ -7,7 +7,10 @@ public class AnswerBot : MonoBehaviour
 {
     int n = 3600000;
     void Start()
-    {
-        Debug.Log(Solution.ControlZ("1 2 Z 3"));
+    {    
+     foreach (var item in Solution.Factorization(420))
+        {
+            Debug.Log(item);
+        }
     }
 }
