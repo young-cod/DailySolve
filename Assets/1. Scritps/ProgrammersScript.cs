@@ -286,7 +286,7 @@ my_string은 영어 소문자 또는 0부터 9까지의 숫자로 이루어져 있습니다. - - -
 
             for (int i = 2; i <= n; i++)
             {
-                while(n % i == 0)
+                while (n % i == 0)
                 {
                     arrange.Add(i);
                     n /= i;
@@ -315,7 +315,7 @@ s의 시작과 끝에는 공백이 없습니다.
 "Z"가 연속해서 나오는 경우는 없습니다.
          */
 
-         public static int ControlZ(string s)
+        public static int ControlZ(string s)
         {
             int answer = 0;
             string[] str = s.Split(" ");
@@ -327,6 +327,41 @@ s의 시작과 끝에는 공백이 없습니다.
             return answer;
         }
 
+        #endregion
+
+        #region 중복된 문자 제거
+        /*
+         * 문제 설명
+문자열 my_string이 매개변수로 주어집니다. my_string에서 중복된 문자를 제거하고 하나의 문자만 남긴 문자열을 return하도록 solution 함수를 완성해주세요.
+
+제한사항
+1 ≤ my_string ≤ 110
+my_string은 대문자, 소문자, 공백으로 구성되어 있습니다.
+대문자와 소문자를 구분합니다.
+공백(" ")도 하나의 문자로 구분합니다.
+중복된 문자 중 가장 앞에 있는 문자를 남깁니다.
+         */
+
+        public static string RemoveDuplicateString(string my_string)
+        {
+            string answer = "";
+            List<string> list = new List<string>();
+
+            foreach(var item in my_string)
+            {
+                list.Add(item.ToString());
+            }
+
+            foreach (var item in list.Distinct())
+            {
+                answer += item;
+            }
+            return answer;
+        }
+        /* Other Solution
+         *  string answer = string.Concat(my_string.Distinct());
+            return answer;
+         */
         #endregion
     }
 }
