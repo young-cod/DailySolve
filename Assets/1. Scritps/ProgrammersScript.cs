@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using YsTools;
 using System.Linq;
+using System;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ProgrammersScript
@@ -457,6 +459,31 @@ cipher는 소문자와 공백으로만 구성되어 있습니다.
                 }
             }
 
+            return answer;
+        }
+
+        #endregion
+
+        #region 대문자와 소문자
+
+        /*
+         * 문제 설명
+문자열 my_string이 매개변수로 주어질 때, 대문자는 소문자로 소문자는 대문자로 변환한 문자열을 return하도록 solution 함수를 완성해주세요.
+
+제한사항
+1 ≤ my_string의 길이 ≤ 1,000
+my_string은 영어 대문자와 소문자로만 구성되어 있습니다.
+         */
+
+        public static string solution(string my_string)
+        {
+            string answer = "";
+
+            foreach (var item in my_string)
+            {
+                answer += char.IsUpper(item) ? char.ToLower(item) : char.ToUpper(item);
+                //answer += char.IsUpper(item) ? item.ToString().ToLower() : item.ToString().ToUpper();
+            }
             return answer;
         }
 
