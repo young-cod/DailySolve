@@ -502,13 +502,13 @@ numbers는 "zero", "one", "two", "three", "four", "five", "six", "seven", "eight"
 "zero"는 numbers의 맨 앞에 올 수 없습니다.
          */
 
-         //z : zero
-         //o : one
-         //t : two , three 
-         //f : four , five 
-         //s : six , seven
-         //e : eight
-         //n : nine;
+        //z : zero
+        //o : one
+        //t : two , three 
+        //f : four , five 
+        //s : six , seven
+        //e : eight
+        //n : nine;
 
         public static long HateEnglish(string numbers)
         {
@@ -523,6 +523,40 @@ numbers는 "zero", "one", "two", "three", "four", "five", "six", "seven", "eight"
 
             return answer;
         }
+
+        #endregion
+
+        #region 인덱스 바꾸기
+
+        /*
+         * 문제 설명
+문자열 my_string과 정수 num1, num2가 매개변수로 주어질 때, my_string에서 인덱스 num1과 인덱스 num2에 해당하는 문자를 바꾼 문자열을 return 하도록 solution 함수를 완성해보세요.
+
+제한사항
+1 < my_string의 길이 < 100
+0 ≤ num1, num2 < my_string의 길이
+my_string은 소문자로 이루어져 있습니다.
+num1 ≠ num2
+         */
+
+        public static string ChangeIndex(string my_string, int num1, int num2)
+        {
+            string answer = "";
+
+            for (int i = 0; i < my_string.Length; i++)
+            {
+                if (i == num1)
+                {
+                    answer += my_string[num2];
+                }
+                else if (i == num2) answer += my_string[num1];
+                else answer += my_string[i];
+
+            }
+            return answer;
+        }
+
+        //char 나 stringBuilder 써도 됨
 
         #endregion
 
