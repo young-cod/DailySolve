@@ -560,5 +560,57 @@ num1 ≠ num2
 
         #endregion
 
+        #region 한 번만 등장한 문자
+
+        /*
+         * 문제 설명
+문자열 s가 매개변수로 주어집니다. s에서 한 번만 등장하는 문자를 사전 순으로 정렬한 문자열을 return 하도록 solution 함수를 완성해보세요. 한 번만 등장하는 문자가 없을 경우 빈 문자열을 return 합니다.
+
+제한사항
+0 < s의 길이 < 1,000
+s는 소문자로만 이루어져 있습니다.
+         */
+
+
+        public static string OnetimeChar(string s)
+        {
+            string answer = "";
+            Dictionary<char, int> dicNum = new Dictionary<char, int>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (dicNum.ContainsKey(s[i]) == false)
+                {
+                    dicNum.Add(s[i], 1);
+                }
+                else
+                {
+                    dicNum[s[i]]++;
+                }
+            }
+
+            var list = dicNum.Keys.ToList();
+            list.Sort();
+
+            foreach (var item in list)
+            {
+                if (dicNum[item] == 1)
+                {
+                    answer += item;
+                }
+            }
+
+            return answer;
+        }
+
+        //Other Solution
+        // string answer = string.Concat(s.Where(x => s.Count(o => o == x) == 1).OrderBy(x => x));
+        //return answer;
+
+        //Other Solution
+        // string.split.Length 를 사용하여해도 됨
+
+        #endregion
+
     }
 }
