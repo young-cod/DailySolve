@@ -612,5 +612,44 @@ s는 소문자로만 이루어져 있습니다.
 
         #endregion
 
+        #region 약수 구하기
+
+        /*
+         * 문제 설명
+정수 n이 매개변수로 주어질 때, n의 약수를 오름차순으로 담은 배열을 return하도록 solution 함수를 완성해주세요.
+
+제한사항
+1 ≤ n ≤ 10,000
+         */
+
+        public static int[] GetDivisor(int n)
+        {
+            int[] answer;
+            List<int> numList = new List<int>();
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    numList.Add(i);
+                }
+            }
+            answer = new int[numList.Count];
+    
+            for (int i = 0; i < numList.Count; i++)
+            {
+                answer[i] = numList[i];
+            }
+
+            return answer;
+        }
+
+        //Other Solution
+        //int[] answer = Enumerable.Range(1, n).Where(x => n % x == 0).ToArray();
+        //return answer;
+
+
+        #endregion
+
     }
 }
