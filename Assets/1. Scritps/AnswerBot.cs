@@ -7,6 +7,6 @@ public class AnswerBot : MonoBehaviour
 {
     void Start()
     {
-        Debug.Log(Solution.HateEnglish("onetwothreefour"));
+        Solution.CalcChar("12323 + 454 + 1255 - 11255");
     }
 }
