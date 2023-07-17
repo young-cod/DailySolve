@@ -754,5 +754,38 @@ num에 k가 여러 개 있으면 가장 처음 나타나는 자리를 return 합니다.
 
         #endregion
 
+        #region n의 배수 고르기
+
+        /*
+         * 문제 설명
+정수 n과 정수 배열 numlist가 매개변수로 주어질 때, numlist에서 n의 배수가 아닌 수들을 제거한 배열을 return하도록 solution 함수를 완성해주세요.
+
+제한사항
+1 ≤ n ≤ 10,000
+1 ≤ numlist의 크기 ≤ 100
+1 ≤ numlist의 원소 ≤ 100,000
+         */
+
+        public static int[] ChoiceMultipleOfN(int n, int[] numlist)
+        {
+            int[] answer = new int[] { };
+            
+            foreach (var item in numlist)
+            {
+                if (item % n == 0)
+                {
+                    Debug.Log(item);
+                    answer = answer.Append(item).ToArray();
+                }
+            }
+
+            return answer;
+        }
+
+        //Other Solution
+        //int[] answer = numlist.Where(x => x % n == 0).ToArray();
+
+        #endregion
+
     }
 }

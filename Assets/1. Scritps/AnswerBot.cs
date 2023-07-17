@@ -7,6 +7,7 @@ public class AnswerBot : MonoBehaviour
 {
     void Start()
     {
-        Solution.CalcChar("12323 + 454 + 1255 - 11255");
+        int[] asdf = { 4, 5, 6, 7, 8, 9 };
+        Solution.ChoiceMultipleOfN(3,asdf);
     }
 }
