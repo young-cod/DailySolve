@@ -6,7 +6,6 @@ using System.Linq;
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Data;
 
 namespace ProgrammersScript
 {
@@ -636,7 +635,7 @@ s는 소문자로만 이루어져 있습니다.
                 }
             }
             answer = new int[numList.Count];
-    
+
             for (int i = 0; i < numList.Count; i++)
             {
                 answer[i] = numList[i];
@@ -742,7 +741,7 @@ num에 k가 여러 개 있으면 가장 처음 나타나는 자리를 return 합니다.
             {
                 if (num.ToString()[i] - '0' == k)
                 {
-                    answer = i+1;
+                    answer = i + 1;
                     break;
                 }
             }
@@ -769,7 +768,7 @@ num에 k가 여러 개 있으면 가장 처음 나타나는 자리를 return 합니다.
         public static int[] ChoiceMultipleOfN(int n, int[] numlist)
         {
             int[] answer = new int[] { };
-            
+
             foreach (var item in numlist)
             {
                 if (item % n == 0)
@@ -784,6 +783,52 @@ num에 k가 여러 개 있으면 가장 처음 나타나는 자리를 return 합니다.
 
         //Other Solution
         //int[] answer = numlist.Where(x => x % n == 0).ToArray();
+
+        #endregion
+
+        #region OX퀴즈
+
+        /*
+         * 문제 설명
+덧셈, 뺄셈 수식들이 'X [연산자] Y = Z' 형태로 들어있는 문자열 배열 quiz가 매개변수로 주어집니다. 수식이 옳다면 "O"를 틀리다면 "X"를 순서대로 담은 배열을 return하도록 solution 함수를 완성해주세요.
+
+제한사항
+연산 기호와 숫자 사이는 항상 하나의 공백이 존재합니다. 단 음수를 표시하는 마이너스 기호와 숫자 사이에는 공백이 존재하지 않습니다.
+1 ≤ quiz의 길이 ≤ 10
+X, Y, Z는 각각 0부터 9까지 숫자로 이루어진 정수를 의미하며, 각 숫자의 맨 앞에 마이너스 기호가 하나 있을 수 있고 이는 음수를 의미합니다.
+X, Y, Z는 0을 제외하고는 0으로 시작하지 않습니다.
+-10,000 ≤ X, Y ≤ 10,000
+-20,000 ≤ Z ≤ 20,000
+[연산자]는 + 와 - 중 하나입니다.
+         */
+
+        public static string[] QuizOX(string[] quiz)
+        {
+            string[] answer = new string[] { };
+
+            bool CheckCalcNumber(string str)
+            {
+                string[] val = str.Split(" ");
+
+                bool type = true;
+                int calcNum = 0;
+                foreach (var item in val)
+                {
+                    if (item.Equals("+")) type = true;
+                    else if (item.Equals("-")) type = false;
+                    else if (item.Equals("=")) break;
+                    else calcNum += type ? int.Parse(item) : -(int.Parse(item));
+                }
+                return calcNum == int.Parse(val[val.Length - 1]) ? true : false;
+            }
+
+            foreach (var item in quiz)
+            {
+                answer = CheckCalcNumber(item) ? answer.Append("O").ToArray() : answer.Append("X").ToArray();
+            }
+
+            return answer;
+        }
 
         #endregion
 
