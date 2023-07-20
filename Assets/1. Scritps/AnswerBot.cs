@@ -7,7 +7,7 @@ public class AnswerBot : MonoBehaviour
 {
     void Start()
     {
-        Solution.CharStringArrange2("diajfd") ;
+        Solution.ArrayCutSave("alkjsdfjlksdf;",6) ;
 
     }
 }

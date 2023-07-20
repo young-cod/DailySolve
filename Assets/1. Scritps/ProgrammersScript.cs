@@ -880,7 +880,7 @@ X, Y, Z는 0을 제외하고는 0으로 시작하지 않습니다.
 
             foreach (var item in charStr)
             {
-                answer+=item;
+                answer += item;
             }
 
             return answer;
@@ -922,6 +922,61 @@ X, Y, Z는 0을 제외하고는 0으로 시작하지 않습니다.
 
         //Other Solution
         //int answer = string.Join("", array).Count(x => x == '7');
+
+        #endregion
+
+        #region 잘라서 배열로 저장하기
+
+        /*
+         * 문제 설명
+문자열 my_str과 n이 매개변수로 주어질 때, my_str을 길이 n씩 잘라서 저장한 배열을 return하도록 solution 함수를 완성해주세요.
+
+제한사항
+1 ≤ my_str의 길이 ≤ 100
+1 ≤ n ≤ my_str의 길이
+my_str은 알파벳 소문자, 대문자, 숫자로 이루어져 있습니다.
+         */
+
+        public static string[] ArrayCutSave(string my_str, int n)
+        {
+            string[] answer = new string[] { };
+            List<string> listAnswer = new List<string>();
+
+            int idx = 0;
+            while (idx < my_str.Length)
+            {
+                if (idx + n > my_str.Length + 1)
+                {
+                    listAnswer.Add(my_str.Substring(idx));
+                    break;
+                }
+                else
+                {
+                    listAnswer.Add(my_str.Substring(idx, n));
+                    idx += n;
+                }
+            }
+
+            answer = listAnswer.ToArray();
+
+            return answer;
+        }
+
+        /*Other Solution
+         *   List<string> strings = new List<string>();
+
+        string temp = my_str;
+
+        while(temp.Length > n)
+        {
+            strings.Add(temp.Substring(0, n));
+            temp = temp.Remove(0, n);
+        }
+
+        strings.Add(temp);
+
+        return strings.ToArray();
+         */
 
         #endregion
     }
