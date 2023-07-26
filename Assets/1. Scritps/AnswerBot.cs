@@ -7,7 +7,7 @@ public class AnswerBot : MonoBehaviour
 {
     void Start()
     {
-        Debug.Log(Solution.FindPolynomial("x + 3x + 5 + 6"));
+        Debug.Log(Solution.AddHideNumber("s987df7sdf9s"));
 
     }
 }

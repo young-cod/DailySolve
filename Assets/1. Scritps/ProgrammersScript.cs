@@ -1200,5 +1200,58 @@ polynomial에는 일차 항과 상수항만 존재합니다.
 
         #endregion
 
+        #region 숨어있는 숫자의 덧셈(2)
+
+        /*
+         * 문제 설명
+문자열 my_string이 매개변수로 주어집니다. my_string은 소문자, 대문자, 자연수로만 구성되어있습니다. my_string안의 자연수들의 합을 return하도록 solution 함수를 완성해주세요.
+
+제한사항
+1 ≤ my_string의 길이 ≤ 1,000
+1 ≤ my_string 안의 자연수 ≤ 1000
+연속된 수는 하나의 숫자로 간주합니다.
+000123과 같이 0이 선행하는 경우는 없습니다.
+문자열에 자연수가 없는 경우 0을 return 해주세요.
+         */
+
+        public static int AddHideNumber(string my_string)
+        {
+            my_string += "a";
+            int answer = 0;
+            int temp = 0;
+
+            string[] str = Regex.Replace(my_string,@"[^0-9]", " ").Split(" ");
+
+            foreach (var item in str)
+            {
+                Debug.Log(item);
+                Debug.Log(" ");
+            }
+
+            foreach (var item in my_string)
+            {
+                if (char.IsNumber(item))
+                {
+                    temp = temp * 10 + int.Parse(item.ToString());
+                }
+                else
+                {
+                    answer += temp;
+                    temp = 0;
+                }
+            }
+
+            return answer;
+        }
+
+        //Other Solution
+        // string[] str = Regex.Replace(my_string,@"[^0-9]"," ").Split(' ');
+        //@"[^0-9]" : 0-9를 제외한 나머지
+        //@"[0-9]" : 0-9만
+        //^ 이 표시는 반대로
+        //Regex.Replace(string,pattern,input)
+
+        #endregion
+
     }
 }
