@@ -1253,7 +1253,7 @@ polynomial에는 일차 항과 상수항만 존재합니다.
 
         #endregion
 
-        #region 안전지대
+        #region 안전지대(지뢰찾기)
 
         /*
          * 문제 설명
@@ -1265,18 +1265,37 @@ image.png
 
         public static int Safezone(int[,] board)
         {
-            int answer = 0;
-            double sqrt = Math.Sqrt(board.Length);
-            int[] safe = new int[board.Length];
+            int answer = board.Length ;
+            int[] x = { -1, 0, 1, -1, 1, -1, 0, 1 };
+            int[] y = { -1, -1, -1, 0, 0, 1, 1, 1 };
+            int len = board.GetLength(0);
+            int[,] tempBoard = new int[len, len];
+            int tempX, tempY;
 
-            for (int i = 0; i < sqrt; i++)
+            for (int i = 0; i < len; i++)
             {
-                for (int j = 0; j < sqrt; j++)
+                for (int j = 0; j < len; j++)
                 {
-                    safe[i * 5 + j] = board[i, j];
+                    if (board[i, j] == 1)
+                    {
+                        tempBoard[i, j] = 1;
+                        for (int k = 0; k < 8; k++)
+                        {
+                            tempX = i + x[k];
+                            tempY = j + y[k];
+                            if (tempX < len && tempX >= 0 && tempY < len && tempY >= 0)
+                            {
+                                tempBoard[tempX, tempY] = 1;
+                            }
+                        }
+                    }
                 }
             }
 
+            foreach (var item in tempBoard)
+            {
+                if (item == 1) answer--;
+            }
 
             return answer;
         }
