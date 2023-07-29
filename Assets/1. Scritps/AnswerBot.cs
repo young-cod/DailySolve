@@ -7,7 +7,8 @@ public class AnswerBot : MonoBehaviour
 {
     void Start()
     {
-        Debug.Log(Solution.AddHideNumber("s987df7sdf9s"));
+        int[,] abc = {{1, 5}, {1, 4}, {2, 6}, {2, 9} };
+        Debug.Log(Solution.Parallel(abc));
 
     }
 }
