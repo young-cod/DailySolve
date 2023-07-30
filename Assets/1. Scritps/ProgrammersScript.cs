@@ -1437,8 +1437,12 @@ dots의 원소는 [x, y] 형태이며 x, y는 정수입니다.
         {
             double GetVec(int x1, int x2, int y1, int y2)
             {
-                if ((y2 - y1) == 0 || (x2 - x1) == 0) return -1;
-                else return (y2 - y1) == 0 ? 1 : (y2 - y1) / (x2 - x1) == 0 ? 1 : (x2 - x1);
+                //0!=0.0
+                // 0.0은 0이 아니라 0에 근삿값
+                double x = (x2 - x1) == 0 ? 0.0 : (x2 - x1);
+                double y = (y2 - y1) == 0 ? 0.0 : (y2 - y1);
+
+                return y / x;
             }
             int answer = 0;
 
@@ -1449,7 +1453,7 @@ dots의 원소는 [x, y] 형태이며 x, y는 정수입니다.
             return answer;
 
         }
-       
+
 
         #endregion
 
