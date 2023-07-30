@@ -1457,5 +1457,57 @@ dots의 원소는 [x, y] 형태이며 x, y는 정수입니다.
 
         #endregion
 
+        #region 겹치는 선분의 길이
+
+        /*
+         * 수를 완성해보세요.
+
+선분이 두 개 이상 겹친 곳은 [-2, -1], [0, 1]로 길이 2만큼 겹쳐있습니다.
+
+제한사항
+lines의 길이 = 3
+lines의 원소의 길이 = 2
+모든 선분은 길이가 1 이상입니다.
+lines의 원소는 [a, b] 형태이며, a, b는 각각 선분의 양 끝점 입니다.
+-100 ≤ a < b ≤ 100
+         */
+
+        public static int LengthOfOverlapLine(int[,] lines)
+        {
+            int answer = 0;
+
+            answer += GetMax(lines[0, 1], lines[1, 1]) - GetMin(lines[0, 0], lines[1, 0]);
+            Console.Write($"Min : {GetMin(lines[0, 0], lines[1, 0])}" + $"Max : {GetMax(lines[0, 1], lines[1, 1])}");
+            Console.WriteLine();
+            answer += GetMax(lines[1, 1], lines[2, 1]) - GetMin(lines[1, 0], lines[2, 0]);
+            Console.Write($"Min : {GetMin(lines[1, 0], lines[2, 0])}" + $"Max : {GetMax(lines[1, 1], lines[2, 1])}");
+
+            return answer;
+
+            int GetMin(int a, int start, int end)
+            {
+                int min = 0;
+
+                //포함
+                if (a >= start || a<=end) min = a;
+                //미포함
+                else 
+
+                return min;
+            }
+            int GetMax(int a, int b)
+            {
+                int max = 0;
+
+                if (a <= b) max = a;
+                else max = b;
+
+                return max;
+            }
+
+        }
+
+        #endregion
+
     }
 }
