@@ -1,11 +1,9 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using YsTools;
-using System.Linq;
-using System;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace ProgrammersScript
 {
@@ -1476,38 +1474,25 @@ lines의 원소는 [a, b] 형태이며, a, b는 각각 선분의 양 끝점 입니다.
         {
             int answer = 0;
 
-            answer += GetMax(lines[0, 1], lines[1, 1]) - GetMin(lines[0, 0], lines[1, 0]);
-            Console.Write($"Min : {GetMin(lines[0, 0], lines[1, 0])}" + $"Max : {GetMax(lines[0, 1], lines[1, 1])}");
-            Console.WriteLine();
-            answer += GetMax(lines[1, 1], lines[2, 1]) - GetMin(lines[1, 0], lines[2, 0]);
-            Console.Write($"Min : {GetMin(lines[1, 0], lines[2, 0])}" + $"Max : {GetMax(lines[1, 1], lines[2, 1])}");
+            int[] arr = new int[200];
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = lines[i, 0]; j < lines[i, 1]; j++)
+                {
+                    arr[j + 100]++;
+                }
+            }
+
+            foreach (var item in arr)
+            {
+                if (item > 1) answer++;
+            }
+            
 
             return answer;
-
-            int GetMin(int a, int start, int end)
-            {
-                int min = 0;
-
-                //포함
-                if (a >= start || a<=end) min = a;
-                //미포함
-                else 
-
-                return min;
-            }
-            int GetMax(int a, int b)
-            {
-                int max = 0;
-
-                if (a <= b) max = a;
-                else max = b;
-
-                return max;
-            }
-
         }
 
         #endregion
-
     }
 }
