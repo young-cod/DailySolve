@@ -17,7 +17,14 @@ namespace YsTools
 
             return answer;
         }
-        
+
+        public static int Gcd(int a, int b)
+        {
+            if (a%b==0) return b;
+            
+
+            return Gcd(b, a % b);
+        }
         //public static List<int> GetDivisorNumList(int n)
         //{
         //    List<int> list = new List<int>();
@@ -27,7 +34,7 @@ namespace YsTools
 
         //public static bool isDivisorNum(int n)
         //{
-            
+
         //    return false;
         //}
 
@@ -41,7 +48,7 @@ namespace YsTools
         //        {
         //            if (i % j == 0) count++;    
         //        }
-                
+
         //    }
 
         //    return count;
