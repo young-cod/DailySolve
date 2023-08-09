@@ -7,12 +7,14 @@ public class AnswerBot : MonoBehaviour
 {
     void Start()
     {
-        int[,] abc = {{1, 4}, {1, 4}, {1, 4} };
-        Debug.Log(Solution.DetermineTheFiniteNum(1,1));
-        Debug.Log(Solution.DetermineTheFiniteNum(3,7));
-        Debug.Log(Solution.DetermineTheFiniteNum(7,20));
-        Debug.Log(Solution.DetermineTheFiniteNum(11,22));
-        Debug.Log(Solution.DetermineTheFiniteNum(12,21));
+        int[] array = { 10,2 };
+        int[] array2 = { 10000, 20, 36, 47, 40, 6, 10, 7000 };
+        int[] array3 = { 6, 10, 20, 36, 40, 47, 7000, 10000 };
+        Solution.UniqueArray(array2, 30);
 
+        //foreach (var item in Solution.UniqueArray(array2, 30))
+        //{
+        //    Debug.Log(item);
+        //}
     }
 }
