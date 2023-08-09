@@ -1543,5 +1543,79 @@ numlist는 중복된 원소를 갖지 않습니다.
         }
 
         #endregion
+
+        #region 등수 매기기
+
+        /*
+         * 문제 설명
+영어 점수와 수학 점수의 평균 점수를 기준으로 학생들의 등수를 매기려고 합니다. 영어 점수와 수학 점수를 담은 2차원 정수 배열 score가 주어질 때, 영어 점수와 수학 점수의 평균을 기준으로 매긴 등수를 담은 배열을 return하도록 solution 함수를 완성해주세요.
+
+제한사항
+0 ≤ score[0], score[1] ≤ 100
+1 ≤ score의 길이 ≤ 10
+score의 원소 길이는 2입니다.
+score는 중복된 원소를 갖지 않습니다.
+         */
+
+        public static int[] DetermineGrade(int[,] score)
+        {
+            int[] answer = new int[] { };
+            List<int> ans = new List<int>();
+
+            int[] temp = new int[score.GetLength(0)];
+            for (int i = 0; i < score.GetLength(0); i++)
+            {
+                ans.Add(score[i, 0] + score[i, 1]);
+            }
+
+            ans = ans.Distinct().OrderByDescending(x => x).ToList();
+
+            int idx = 1;
+            int chk = 0;
+            for (int i = 0; i < ans.Count; i++)
+            {
+                chk = 0;
+                for (int j = 0; j < score.GetLength(0); j++)
+                {
+                    if (ans[i] == score[j, 0] + score[j, 1])
+                    {
+                        Debug.Log($"{j} : {i} | {ans[i]},{score[j, 0] + score[j, 1]}");
+                        temp[j] = idx;
+
+                        chk++;
+                    }
+                }
+                idx++;
+                if (chk > 1) idx += chk - 1;
+            }
+
+            answer = temp;
+
+            //Other Solution
+            /*
+            List<int> ans = new List<int>();
+            List<int> temp = new List<int>();
+            List<int> temp2 = new List<int>();
+
+            for (int i = 0; i < score.GetLength(0); i++)
+            {
+                temp.Add(score[i, 0] + score[i, 1]);
+            }
+
+           temp2 = temp.OrderByDescending(x => x).ToList();
+           foreach (var item in temp2)
+            {
+                Debug.Log(item);
+            }
+            for (int i = 0; i < score.GetLength(0); i++)
+            {
+                ans.Add(temp2.FindIndex(x => x == temp[i]) + 1);
+            }
+            return answer = ans.ToArray();
+             */
+            return answer;
+        }
+
+        #endregion
     }
 }
