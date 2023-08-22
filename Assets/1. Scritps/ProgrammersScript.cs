@@ -1749,12 +1749,59 @@ bin1과 bin2는 "0"을 제외하고 0으로 시작하지 않습니다.
         {
             string answer = "";
 
-            answer = Convert.ToString(Convert.ToInt32(bin1, 2) + Convert.ToInt32(bin2,2),2);
+            answer = Convert.ToString(Convert.ToInt32(bin1, 2) + Convert.ToInt32(bin2, 2), 2);
 
             return answer;
         }
 
         #endregion
 
+        #region A로 B 만들기
+
+        /*
+         * 문제 설명
+문자열 before와 after가 매개변수로 주어질 때, before의 순서를 바꾸어 after를 만들 수 있으면 1을, 만들 수 없으면 0을 return 하도록 solution 함수를 완성해보세요.
+
+제한사항
+0 < before의 길이 == after의 길이 < 1,000
+before와 after는 모두 소문자로 이루어져 있습니다.
+         */
+
+        public static int MakeBWithA(string before, string after)
+        {
+            int answer = 0;
+
+            answer = String.Concat(before.OrderBy(x => x)) == String.Concat(after.OrderBy(y => y)) ? 1 : 0;
+
+            return answer;
+        }
+        #endregion
+
+        #region k의 개수
+
+        /*
+         * 문제 설명
+1부터 13까지의 수에서, 1은 1, 10, 11, 12, 13 이렇게 총 6번 등장합니다. 정수 i, j, k가 매개변수로 주어질 때, i부터 j까지 k가 몇 번 등장하는지 return 하도록 solution 함수를 완성해주세요.
+
+제한사항
+1 ≤ i < j ≤ 100,000
+0 ≤ k ≤ 9
+         */
+
+        public static int NumberOfK(int i, int j, int k)
+        {
+            int answer = 0;
+            char chk = Convert.ToChar(k.ToString());
+
+            for (int start = i; start <= j; start++)
+            {
+                string str = start.ToString();
+                answer += str.Count(x => (x == chk));
+
+            }
+            return answer;
+
+        }
+        #endregion
     }
 }
