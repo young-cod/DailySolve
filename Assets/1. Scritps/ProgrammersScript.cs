@@ -1834,8 +1834,56 @@ A, B는 알파벳 소문자로 이루어져 있습니다.
 
         public static int CuttingPaper(int M, int N)
         {
-            return M*N -1;
+            return M * N - 1;
         }
+
+        #endregion
+
+        #region 연속된 수의 합
+
+        /*
+         * 문제 설명
+연속된 세 개의 정수를 더해 12가 되는 경우는 3, 4, 5입니다. 두 정수 num과 total이 주어집니다. 연속된 수 num개를 더한 값이 total이 될 때, 정수 배열을 오름차순으로 담아 return하도록 solution함수를 완성해보세요.
+
+제한사항
+1 ≤ num ≤ 100
+0 ≤ total ≤ 1000
+num개의 연속된 수를 더하여 total이 될 수 없는 테스트 케이스는 없습니다.
+         */
+
+        public static int[] SumOfConsecutiveNumbers(int num, int total)
+        {
+            int[] answer = new int[] { };
+
+            int start = (total - (num * (num + 1)) / 2) / num + 1;
+            Console.Write(start);
+            answer = Enumerable.Range(start, num).ToArray();
+
+            return answer;
+        }
+
+        #region 연속된 수의 합 공식
+
+        /* 
+
+         [첫번째] m = 마지막 수 | n = 연속된 개수 | total = 연속된 합의 수
+         * m = ( ( ( total * 2 ) / n ) + n - 1 ) / 2
+         * ex) m : ???? , n : 3 , total : 12
+         *      (((12*2)/3)+3-1)/2 = 5 {3,4,5} : 12
+         * ex) m : ???? , n : 5 , total : 15
+         *      (((15*2)/5)+5-1)/2 = 5 {1,2,3,4,5} : 15
+         *
+         
+         [두번쨰] m = 시작된 수 | n = 연속된 개수 | total = 연속된 합의 수
+         * m = ((total -((n*(n+1))/2)) / n + 1
+         * ex) m : ??? , n : 3 , total : 12
+         *      ((12 - ((3*(3+1))/2)) / 3 + 1 = 3 {3,4,5} : 12
+         * ex) m : ??? , n : 5 , total : 15
+         *      ((15 - ((5*(5+1))/2)) / 5 + 1 = 1 {1,2,3,4,5} : 15 
+         
+         */
+
+        #endregion
 
         #endregion
     }
